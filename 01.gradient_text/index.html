@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>gradient text</title>
+    <style>
+    p{display:inline-block;padding:0;margin:0;font-size:100px;font-weight:900}
+    .gradient{
+        background: -o-gradient(linear, 0% 0%, 50% 100%, from(#f60), to(rgb(56, 165, 13)));
+        background: -ms-gradient(linear, 0% 0%, 50% 100%, from(#f60), to(rgb(56, 165, 13)));
+        background: -moz-gradient(linear, 0% 0%, 50% 100%, from(#f60), to(rgb(56, 165, 13)));
+        background: -webkit-gradient(linear, 0% 0%, 50% 100%, from(#f60), to(rgb(56, 165, 13)));
+        background: gradient(linear, 0% 0%, 50% 100%, from(#f60), to(rgb(56, 165, 13)));
+    }
+    .l_gradient{
+        -ms-filter: 'progid:DXImageTransform.Microsoft.Gradient(startColorStr="#f60", endColorStr="rgb(56, 165, 13)", GradientType=1)';
+        background: linear-gradient(90deg, red 0%, orange 50%, yellow 100%);
+    }
+    .crop{
+        color: transparent;
+        -webkit-background-clip: text;
+    }
+    svg{width:700px}
+
+    .txt{fill:url('#myGradient');font-size:100px;font-weight:900}
+    </style>
+</head>
+<body>
+    <div>
+    <h1>graident 속성 사용</h1>
+    <p class="gradient crop">HELLO 안녕</p>
+    <p class="l_gradient crop">HELLO 안녕</p>
+    <p class="gradient">HELLO 안녕</p>
+    </div>
+
+    <svg>
+        <defs>
+            <linearGradient id="myGradient">
+                <stop offset="5%"  stop-color="#3c2fea" />
+                <stop offset="95%" stop-color="#f60" />
+            </linearGradient>
+        </defs>
+        <text x="0" y="1em" class="txt">HELLO 안녕</text>
+    </svg>
+
+    <ul>
+        <li>길이만큼 그라데이션이 생기기 떄문에 글씨 영역만큼만 width가 설정되도록 해야함.</li>
+        <li><a href="https://developer.mozilla.org/ko/docs/Web/CSS/linear-gradient">linear-gradient는</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients">MDN gradient 예제</a></li>
+    </ul>
+
+    <ul>
+        <li>defs : 그래픽 요소를 만드는 것. defs 태그로 꼭 감싸지 않고 어느 곳에서나 삽입 가능하나 svg 요소가 참조하거나 접근성 측면에서 defs 로 감싼 형태를 추천 (ie9까지 지원) <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/defs">참고</a> </li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
